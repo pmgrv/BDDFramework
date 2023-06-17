@@ -2,12 +2,17 @@ package StepDefination;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
+
+import java.io.IOException;
+
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
-
+import utils.ExcelFileReader;
 public class LoginSteps {
 	@Given("^User is on login page$")
-	public void user_is_on_login_page() {
+	public void user_is_on_login_page() throws IOException {
+		ExcelFileReader efr = new ExcelFileReader();
+		efr.ReadExcelData();
 		System.out.println("In user_is_on_login_page");
 	}
 
