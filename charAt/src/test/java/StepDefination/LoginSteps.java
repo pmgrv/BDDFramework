@@ -10,16 +10,20 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import utils.DatabaseReader;
 import utils.ExcelFileReader;
+import utils.GetSetDataBaseValues;
 
 public class LoginSteps {
+	public DatabaseReader dr = new DatabaseReader();
 	@Given("^User is on login page$")
 	public void user_is_on_login_page() throws IOException, SQLException {
 //		ExcelFileReader efr = new ExcelFileReader();
 //		efr.ReadExcelData();
-		//Retrieving data from MYSql Database.
-		DatabaseReader dr = new DatabaseReader();
-		dr.SetDataInDatabase();
-		dr.GetDataFromDatabase();
+		
+		
+		System.out.println("Reading values from DB");
+		GetSetDataBaseValues dbvalues = new GetSetDataBaseValues();
+		dbvalues.SetDataIntoDB(8, "Bittu", "bittu@123");
+		dbvalues.GetDataFromDB();
 		System.out.println("In user_is_on_login_page");
 	}
 
