@@ -4,15 +4,22 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import utils.DatabaseReader;
 import utils.ExcelFileReader;
+
 public class LoginSteps {
 	@Given("^User is on login page$")
-	public void user_is_on_login_page() throws IOException {
-		ExcelFileReader efr = new ExcelFileReader();
-		efr.ReadExcelData();
+	public void user_is_on_login_page() throws IOException, SQLException {
+//		ExcelFileReader efr = new ExcelFileReader();
+//		efr.ReadExcelData();
+		//Retrieving data from MYSql Database.
+		DatabaseReader dr = new DatabaseReader();
+		dr.SetDataInDatabase();
+		dr.GetDataFromDatabase();
 		System.out.println("In user_is_on_login_page");
 	}
 
